@@ -20,11 +20,11 @@ class User extends CI_Controller
      * @see https://codeigniter.com/user_guide/general/urls.html
      */
 
-    // public function __construct()
-    // {
-    // 	parent::__construct();
-    // 	$this->load->library('form_validation');
-    // }
+    public function __construct()
+    {
+        parent::__construct();
+        is_logged_in();
+    }
     public function index()
     {
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
